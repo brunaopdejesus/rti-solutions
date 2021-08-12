@@ -12,13 +12,13 @@
     <form method="POST" action="./consumo.php">
         <h1>Cálculo de Conta de Luz</h1>
         <label for="consumo-por-hora">Consumo de Quilowatts por hora:</label>
-        <input id="consumo-por-hora" name="consumo-por-hora" />
+        <input id="consumo-por-hora" name="consumo-por-hora" required="true"/>
 
         <label for="nome-cliente">Nome completo:</label>
-        <input id="nome-cliente" name="nome-cliente" />
+        <input id="nome-cliente" name="nome-cliente" required="true"/>
 
         <label for="endereco">Endereço (rua e número):</label>
-        <input id="endereco" name="endereco" placeholder="Ex.: Rua das Rosas, 100"/>
+        <input id="endereco" name="endereco" placeholder="Ex.: Rua das Rosas, 100" required="true"/>
 
         <button name="acao">Calcular</button>
     </form>

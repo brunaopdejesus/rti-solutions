@@ -9,6 +9,7 @@ if (isset($_POST["acao"])) {
 } else {
 
     echo "Você não enviou as informações corretamente.";
+    die;
 
 }
 
