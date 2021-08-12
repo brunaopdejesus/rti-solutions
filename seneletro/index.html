@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consumo.php">
+    <title>Conta de Luz</title>
+</head>
+<body>
+    <form method="POST" action="./consumo.php">
+        <h1>Cálculo de Conta de Luz</h1>
+        <label for="consumo-por-hora">Consumo de Quilowatts por hora:</label>
+        <input id="consumo-por-hora" name="consumo-por-hora" />
+
+        <label for="nome-cliente">Nome completo:</label>
+        <input id="nome-cliente" name="nome-cliente" />
+
+        <label for="endereco">Endereço (rua e número):</label>
+        <input id="endereco" name="endereco" placeholder="Ex.: Rua das Rosas, 100"/>
+
+        <button name="acao">Calcular</button>
+    </form>
+</body>
+</html>
