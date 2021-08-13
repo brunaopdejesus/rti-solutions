@@ -1,35 +1,53 @@
 <?php
 
-if (isset($_POST["acao"])) {
+    if(isset($_POST["nome"]) && isset($_POST["salario"]) && isset($_POST["genero"])
+    && isset($_POST["cargo"])) {
 
-    $consumoHora = $_POST["consumo-por-hora"];
-    $nomeCliente = $_POST["nome-cliente"];
-    $endereco = $_POST["endereco"];
+        $nome = $_POST["nome"];
+        $salario = $_POST["salario"];
+        $genero = $_POST["genero"];
+        $cargo = $_POST["cargo"];
 
-} else {
+        // $salarioNovo = 0;
 
-    echo "Você não enviou as informações corretamente.";
-    die;
+        // if($salario > 5000) {
+        //     $salarioNovo = $salario * 1.1; 
+        // } else {
+        //     $salarioNovo = $salario * 1.2; 
+        // }
 
-}
+        // 1.1 = 110% = 110/100
+        // 1.2 = 120% = 120/100
 
-if ($consumoHora > 120) {
+        // Ternário
+        $salarioNovo = $salario > 5000 ? $salario * 1.1 : $salario * 1.2;
 
-    $valorAlto = ($consumoHora * 0.42);
+    } else {
+        die("<main>Você não enviou os dados.</main>");
+    }
 
-    echo '<div style="font-size:35px;">' . "Conta de luz de " . strtoupper($nomeCliente) . "." . '</div>' . "<br>";
-    echo '<div style="font-size:30px;">' . "$endereco." . '</div>';
-    echo '<div style="color:red;font-size:30px;">' . "Consumo: " . "$consumoHora" . "kWh." . '</div>' . "<br>";
-    echo '<div style="font-size:30px;">' . "Valor a pagar: " . "R$$valorAlto." . '</div>' . "<br>";
+?>
 
-} else {
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calcular.php">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular Salário</title>
+</head>
+<body>
+    <main>
+        <p>
+            <?= $genero === "M" ? "O" : ($genero === "F" ? "A" : "") ?>
 
-    $valorBaixo = ($consumoHora * 0.32);
+            <?= $nome ?> passará a receber R$
+            <?=number_format($salarioNovo, 2, ",", ".") ?>
+            no cargo de <?= $cargo ?>.
+        </p>
 
-    echo '<div style="font-size:35px;">' . "Conta de luz de $nomeCliente." . '</div>' . "<br>";
-    echo '<div style="font-size:30px;">' . "$endereco." . '</div>';
-    echo '<div style="color:green;font-size:30px;">' . "Consumo: " . "$consumoHora" . "kWh." . '</div>' . "<br>";
-    echo '<div style="font-size:30px;">' . "Valor a pagar: " . "R$$valorBaixo." . '</div>' . "<br>";
-    echo '<div style="font-size:30px;">' . "Obrigada por economizar!";
-}
-
+    </main>
+</body>
+</html>
